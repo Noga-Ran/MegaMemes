@@ -6,22 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaMeme</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flex-helpers.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/app-layout.css">
+
 </head>
 <body onload="onInit()">
 
     <ui class="ui-container">
-        <header>
+        <header header-layout>
             <logo>MegaMeme</logo>
             <a href="#" onclick="displayGallery()">Gallery</a>
             <!-- <a href="#" onclick="displayLMemes()">Memes</a> -->
             <a href="#about">About</a>
 
         </header>
-        <section class="gallery">
-            <section class="gallery-container">
+        <section class="gallery main-layout">
+            <section class="gallery-container grid-container">
 
             </section>
-
         </section>
         <section class="editor">
             <h1>Editor</h1>

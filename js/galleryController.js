@@ -6,7 +6,7 @@ function renderGallery() {
     var newImagsValues= []
 
     for(var i=1; i<=18 ; i++){
-        newHtml+=`<img id="${i}" src="meme-imgs/${i}.jpg" width="100" height="100" onclick="setImg(${i})">`
+        newHtml+=`<div class="div-${i}"><img id="${i}" src="meme-imgs/${i}.jpg" width="250" height="250" onclick="setImg(${i})"></div>`
         newImagsValues.push({id:`${i}`,url:`meme-imgs/${i}.jpg`})
     }
     elGalleryC.innerHTML = newHtml
