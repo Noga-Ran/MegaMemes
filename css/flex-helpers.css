@@ -11,9 +11,18 @@
     justify-content: space-between;
 }
 
-.flex.center-items {
+.center-items {
     justify-content: center;
     align-items: center;
+}
+
+.center-flex-div{
+    justify-content: center;
+}
+
+.center-div {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .clean-list {
