@@ -11,13 +11,15 @@ var gMeme = {
     txt: 'Enter Text',
     size: 20,
     align: 'left',
-    color: 'black'
+    color: 'black',
+    font: 'verdana'
     },
     {
     txt: 'Enter Text',
     size: 20,
     align: 'left',
-    color: 'black'
+    color: 'black',
+    font: 'verdana'
     }
     ]
 }
@@ -30,15 +32,19 @@ function setImg(id) {
 
 function getMeme(memeId, isChange=null) {
     
+    console.log(isChange);
     var index = gImgs.findIndex(img => img.id == memeId);
     gMeme.selectedImgId = memeId
     if(isChange) {
 
         gMeme.lines.forEach(function(line){
-            line.txt = 'Enter Text'
+            console.log(line);
+            line.txt = ''
             line.size = 20
             line.color = 'black'
+            line.font = 'verdana'
         })
+        changeLineDef()
         
         var elInput = document.getElementById('txtChange')
         elInput.value = ''
@@ -60,11 +66,10 @@ function drawText() {
     
     for(var i=0; i<gMeme.lines.length; i++) {
         var style = gMeme.lines[i]
-        gElCtx.font = `${style.size}px Verdana`;
+        gElCtx.font = `${style.size}px ${style.font}`;
     
         gElCtx.strokeStyle = style.color;
         if(i===0) {
-            console.log('1');
             gElCtx.strokeText(style.txt, 200, 50);
         } else {
             gElCtx.strokeText(style.txt, 200, 200);
@@ -76,6 +81,12 @@ function setLineText(txt, ev){
     ev.preventDefault()
 
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
+    getMeme(gMeme.selectedImgId)
+}
+
+function changeFont(font, ev) {
+    ev.preventDefault()
+    gMeme.lines[gMeme.selectedLineIdx].font = font;
     getMeme(gMeme.selectedImgId)
 }
 
@@ -99,11 +110,28 @@ function switchLine() {
     } else {
         gMeme.selectedLineIdx=0
     }
+    
+    changeLineDef()
+
     getMeme(gMeme.selectedImgId)
-    var elInput = document.getElementById('txtChange')
-    elInput.value = ''
 }
 
 function createGImgs(gImgsValues){
     gImgs = gImgsValues
+}
+
+function changeLineDef(){
+    var lineStyle = gMeme.lines[gMeme.selectedLineIdx] 
+
+    var elInput = document.getElementById('txtChange')
+    elInput.value = lineStyle.txt
+
+    var elFont = document.getElementById('font-selection')
+    elFont.value = lineStyle.font
+
+    var elColor = document.getElementById('stroke-clr')
+    elColor.value = lineStyle.color
+
+    var elSize = document.getElementById('font-size')
+    elSize.value = lineStyle.size
 }
