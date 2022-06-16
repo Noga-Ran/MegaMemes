@@ -11,15 +11,17 @@ var gMeme = {
     txt: 'Enter Text',
     size: 20,
     align: 'left',
-    color: 'black',
-    font: 'verdana'
+    color: '#000000',
+    fillColor: '#FFFFFF',
+    font: 'verdana',
     },
     {
-    txt: 'Enter Text',
-    size: 20,
-    align: 'left',
-    color: 'black',
-    font: 'verdana'
+        txt: 'Enter Text',
+        size: 20,
+        align: 'left',
+        color: '#000000',
+        fillColor: '#FFFFFF',
+        font: 'verdana',
     }
     ]
 }
@@ -39,9 +41,10 @@ function getMeme(memeId, isChange=null) {
 
         gMeme.lines.forEach(function(line){
             console.log(line);
-            line.txt = ''
+            line.txt = 'Enter Text'
             line.size = 20
-            line.color = 'black'
+            line.color = '#000000'
+            line.fillColor ='#FFFFFF'
             line.font = 'verdana'
         })
         changeLineDef()
@@ -68,10 +71,14 @@ function drawText() {
         var style = gMeme.lines[i]
         gElCtx.font = `${style.size}px ${style.font}`;
     
-        gElCtx.strokeStyle = style.color;
+        gElCtx.lineWidth = 0.5;
+        gElCtx.strokeStyle = style.color
+        gElCtx.fillStyle = style.fillColor
         if(i===0) {
+            gElCtx.fillText(style.txt, 200, 50);
             gElCtx.strokeText(style.txt, 200, 50);
         } else {
+            gElCtx.fillText(style.txt, 200, 200);
             gElCtx.strokeText(style.txt, 200, 200);
         }
     }
@@ -90,9 +97,11 @@ function changeFont(font, ev) {
     getMeme(gMeme.selectedImgId)
 }
 
-function setColor(clr, ev) {
+function setColor(clr, ev,isStroke) {
     ev.preventDefault()
-    gMeme.lines[gMeme.selectedLineIdx].color = clr;
+
+    if(isStroke) gMeme.lines[gMeme.selectedLineIdx].color = clr;
+    if(!isStroke) gMeme.lines[gMeme.selectedLineIdx].fillColor = clr;
     getMeme(gMeme.selectedImgId)
 }
 
@@ -131,6 +140,9 @@ function changeLineDef(){
 
     var elColor = document.getElementById('stroke-clr')
     elColor.value = lineStyle.color
+
+    var elFillColor = document.getElementById('fill-clr')
+    elFillColor.value = lineStyle.fillColor
 
     var elSize = document.getElementById('font-size')
     elSize.value = lineStyle.size

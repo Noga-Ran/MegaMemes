@@ -26,21 +26,29 @@
             </section>
         </section>
         <section class="editor">
-            <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
-            <form">
-                <input type="text" id="txtChange" placeholder="enter text" name="txtChange" oninput="setLineText(this.value, event)">
-                <select id="font-selection" onchange="changeFont(this.value, event)">
-                    <option value="verdana">Verdana</option> 
-                    <option value="cursive">Cursive</option>
-                    <option value="fantasy">Fantasy</option>                   
-                    <option value="monospace">Monospace</option>
-                </select>
-                <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" oninput="setColor(this.value, event)">
-                <label for="font-size">increase/decrease</label>
-                <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
-                <span class="validity"></span>
-                <button onclick="switchLine()">Switch Line</button>
-            </form>
+            <div class="canvas-container">
+                <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
+            </div>
+            <div>
+                <form class="changes-container">
+                    <input type="text" id="txtChange" placeholder="enter text" name="txtChange" oninput="setLineText(this.value, event)">
+                    <div>
+                        <select id="font-selection" onchange="changeFont(this.value, event)">
+                            <option value="verdana">Verdana</option> 
+                            <option value="cursive">Cursive</option>
+                            <option value="fantasy">Fantasy</option>                   
+                            <option value="monospace">Monospace</option>
+                        </select>
+                        <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" oninput="setColor(this.value, event,true)">
+                        <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" oninput="setColor(this.value, event,false)">
+                    </div>
+                    <label for="font-size">increase/decrease</label>
+                    <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
+                    <div>
+                        <button onclick="switchLine()">Switch Line</button>
+                    </div>
+                </form>
+            </div>
         </section>
 
         <div id="about">
