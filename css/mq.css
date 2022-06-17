@@ -18,10 +18,15 @@
 }
 
 /* tablet */
+@media screen and (max-width: 979px) and (min-width:420px){
 
+    html{
+        background-color: red;
+    }
+}
 
 /* desktop */
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 980px) {
 
     html{
         background-color: plum;

@@ -34,7 +34,6 @@ function setImg(id) {
 
 function getMeme(memeId, isChange=null) {
     
-    console.log(isChange);
     var index = gImgs.findIndex(img => img.id == memeId);
     gMeme.selectedImgId = memeId
     if(isChange) {
@@ -76,14 +75,14 @@ function drawText() {
         gElCtx.fillStyle = style.fillColor
         if(i===0) {
             if(i===gMeme.selectedLineIdx) {
-                drawBorder(i)
+                drawShadow()
             }
             gElCtx.strokeText(style.txt, 200, 50);
             gElCtx.shadowBlur=0;
             gElCtx.fillText(style.txt, 200, 50);
         } else {
             if(i===gMeme.selectedLineIdx) {
-                drawBorder(i)
+                drawShadow()
             }
             gElCtx.strokeText(style.txt, 200, 300);
             gElCtx.shadowBlur=0;
@@ -158,11 +157,9 @@ function changeLineDef(){
     elSize.value = lineStyle.size
 }
 
-function drawBorder(line, x=0, y=0) {
-    if(line===gMeme.selectedLineIdx) {
-        console.log('add border', line);
-        gElCtx.shadowColor="yellow";
-        gElCtx.shadowBlur=10;
-        // gElCtx.lineWidth = 10;
-    }
+function drawShadow() {
+    
+    gElCtx.shadowColor="yellow";
+    gElCtx.shadowBlur=20;
+
 }
