@@ -2,17 +2,51 @@
 /* mobile (first) */
 @media screen and (max-width: 420px) {
 
-    html{
-        background-color: palegreen;
+    .logo{
+        padding: 0 0 0 10px;
+    }
+
+    .gallery-link{
+        padding: 0 20px 0 0;
+    }
+
+    .about-link{
+        padding-right: 10px;
+    }
+
+    .gallery-imgs, .gallery-container div{
+        height: 150px;
+        width: 150px;
+        outline: 1px black solid;
     }
 
     canvas{
         display:block;
+        border: 1px solid black;
+        height: 150px;
+        width: 150px;
     }
 
-    img {
-        height: 300px;
-        width: 300px;
+    .grid-container{
+        display: grid;
+        grid-template-rows: repeat(8, 150px);
+        grid-template-columns: repeat(2, 150px);
+        gap: 10px 10px;
+    }
+    
+    .div-1{
+        grid-column: 1;
+        grid-row: 1;
+    }
+    
+    .div-2{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .editor{
+        display: flex;
+        justify-content: center;
     }
 
 }
@@ -20,20 +54,41 @@
 /* tablet */
 @media screen and (max-width: 979px) and (min-width:420px){
 
-    html{
-        background-color: red;
+    .logo{
+        padding: 0 0 0 10px;
+    }
+
+    .gallery-link{
+        padding: 0 40px 0 0;
+    }
+
+    .about-link{
+        padding-right: 10px;
     }
 }
 
 /* desktop */
 @media screen and (min-width: 980px) {
 
-    html{
-        background-color: plum;
+    .logo{
+        padding: 0 100px 0 20px;
+    }
+
+    .gallery-link{
+        padding-right: 10px;
+    }
+
+    .about-link{
+        padding-right: 10px;
     }
 
     .main-layout, .header-layout {
         max-width: 900px;
+    }
+
+    .gallery-imgs {
+        height: 300px;
+        width: 300px;
     }
 
     .grid-container{
@@ -57,10 +112,5 @@
     .editor{
         display: flex;
         justify-content: center;
-    }
-
-    img {
-        height: 300px;
-        width: 300px;
     }
 }

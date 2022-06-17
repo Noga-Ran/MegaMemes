@@ -6,26 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MegaMeme</title>
     <link rel="stylesheet" href="css/main.css">
-    <!-- <link rel="stylesheet" href="css/flex-helpers.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/app-layout.css"> -->
 
 </head>
 <body onload="onInit()">
 
     <ui class="ui-container">
         <header class="flex align-center space-between">
-            <logo>MegaMeme</logo>
-            <a href="#gallery" onclick="displayGallery()">Gallery</a>
-            <a href="#about">About</a>
+            <logo class="logo"><img src="other-imgs/design/LOGO.png"></logo>
+            <div>
+                <a class="gallery-link" href="#gallery" onclick="displayGallery()">Gallery</a>
+                <a class="about-link" href="#about">About</a>
+            </div>
+     </header>
 
-        </header>
         <section class="gallery main-layout center-div" id="gallery">
             <section class="gallery-container grid-container center-items">
-
             </section>
         </section>
-        <section class="editor">
+        <section class="editor main-layout">
             <div class="canvas-container">
                 <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
             </div>
@@ -52,10 +50,11 @@
         </section>
 
         <div id="about">
-            <div>
-                <div>
+            <div class="about-container center-div flex align-center">
+                <img src="other-imgs/img.jpg">
+                <div class="center-div flex align-center cols">  
                     <h3>Noga Ran</h3>
-                    <p>is a programmer that doesn't know what to write about herself.<br>Pretend her hobbies and Dreams are written here.</p>
+                    <p>this programmer doesn't know what to write about herself.<br>Pretend that her hobbies and dreams are written here.</p>
                     <div>
                         <a href="https://www.facebook.com" target="_blank">f</a>
                         <a href="https://github.com/" target="_blank">git</a>
@@ -64,6 +63,11 @@
                 </div>
             </div>
         </div>
+        
+        <footer class="align-center">
+            <p>megameme</p>
+            <p>All Rights Reserved ©️ 2022</p>
+        </footer>
     </ui>
 
     <script src="js/galleryController.js"></script>

@@ -5,7 +5,7 @@
 @import "mq.css";
 
 html {
-    /* //background-color: lightcyan; */
+    background-color: rgb(243, 237, 237);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -13,11 +13,68 @@ body {
     margin: 0;
 }
 
+.ui-container{
+    position: relative;
+    min-height: 100vh;
+}
+
 header {
-    background-color: purple;
+    background-color: goldenrod; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, rgb(255, 215, 54) , rgb(245, 254, 78));
     height: 70px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: larger;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.logo img {
+    width: 120px;
+    height: 50px;
+}
+
+header a{
+    color:black;
+    font-weight: bold;
+}
+
+#about{
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+    height: auto; 
+    margin: 20px 0 20px 0;
+    height: auto;
+}
+
+.about-container{
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+#about img{
+    border-radius: 50%;
+    width: 40%;
+}
+
+footer {
+    background-color: rgb(255, 134, 42);
+    background-image: linear-gradient(rgb(255, 134, 42), rgb(255, 132, 0));
+    height: auto;
+    color: azure;
+    padding: 0 20px 0 20px;
+}
+
+footer p:first-of-type{
+    padding: 20px 0 5px 0;
+    font-size: larger;
+    font-weight: bold;
+    margin: 0;
+}
+
+footer p:last-of-type{
+    padding-bottom: 20px;
+    margin: 0;
 }
 
 .editor{
