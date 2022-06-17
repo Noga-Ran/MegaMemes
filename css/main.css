@@ -13,6 +13,13 @@ body {
     margin: 0;
 }
 
+header {
+    background-color: purple;
+    height: 70px;
+    margin-bottom: 10px;
+    font-size: larger;
+}
+
 .editor{
     display: none;
 }

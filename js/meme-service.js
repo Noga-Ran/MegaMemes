@@ -71,16 +71,25 @@ function drawText() {
         var style = gMeme.lines[i]
         gElCtx.font = `${style.size}px ${style.font}`;
     
-        gElCtx.lineWidth = 0.5;
+        gElCtx.lineWidth = 2;
         gElCtx.strokeStyle = style.color
         gElCtx.fillStyle = style.fillColor
         if(i===0) {
-            gElCtx.fillText(style.txt, 200, 50);
+            if(i===gMeme.selectedLineIdx) {
+                drawBorder(i)
+            }
             gElCtx.strokeText(style.txt, 200, 50);
+            gElCtx.shadowBlur=0;
+            gElCtx.fillText(style.txt, 200, 50);
         } else {
-            gElCtx.fillText(style.txt, 200, 200);
-            gElCtx.strokeText(style.txt, 200, 200);
+            if(i===gMeme.selectedLineIdx) {
+                drawBorder(i)
+            }
+            gElCtx.strokeText(style.txt, 200, 300);
+            gElCtx.shadowBlur=0;
+            gElCtx.fillText(style.txt, 200, 300);
         }
+
     }
 }
 
@@ -112,7 +121,8 @@ function setFontSize(val,ev) {
     getMeme(gMeme.selectedImgId)
 }
 
-function switchLine() {
+function switchLine(e) {
+    e.preventDefault()
     var gMemeLinesNum = gMeme.lines.length
     if(gMeme.selectedLineIdx+1<gMemeLinesNum) {
         gMeme.selectedLineIdx++
@@ -121,7 +131,6 @@ function switchLine() {
     }
     
     changeLineDef()
-
     getMeme(gMeme.selectedImgId)
 }
 
@@ -133,7 +142,8 @@ function changeLineDef(){
     var lineStyle = gMeme.lines[gMeme.selectedLineIdx] 
 
     var elInput = document.getElementById('txtChange')
-    elInput.value = lineStyle.txt
+    if(lineStyle.txt!=='Enter Text') elInput.value = lineStyle.txt
+    if(lineStyle.txt==='Enter Text') elInput.value = ''
 
     var elFont = document.getElementById('font-selection')
     elFont.value = lineStyle.font
@@ -146,4 +156,13 @@ function changeLineDef(){
 
     var elSize = document.getElementById('font-size')
     elSize.value = lineStyle.size
+}
+
+function drawBorder(line, x=0, y=0) {
+    if(line===gMeme.selectedLineIdx) {
+        console.log('add border', line);
+        gElCtx.shadowColor="yellow";
+        gElCtx.shadowBlur=10;
+        // gElCtx.lineWidth = 10;
+    }
 }

@@ -14,7 +14,7 @@
 <body onload="onInit()">
 
     <ui class="ui-container">
-        <header header-layout>
+        <header class="flex align-center space-between">
             <logo>MegaMeme</logo>
             <a href="#gallery" onclick="displayGallery()">Gallery</a>
             <a href="#about">About</a>
@@ -45,7 +45,7 @@
                     <label for="font-size">increase/decrease</label>
                     <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
                     <div>
-                        <button onclick="switchLine()">Switch Line</button>
+                        <button onclick="switchLine(event)">Switch Line</button>
                     </div>
                 </form>
             </div>
