@@ -1,13 +1,13 @@
-@import 'root.css';
-@import 'font-awesome.css';
-@import 'flex-helpers.css';
+@import 'roots and helpers/root.css';
+@import 'roots and helpers/font-awesome.css';
+@import 'roots and helpers/flex-helpers.css';
 @import 'grid.css';
 @import 'app-layout.css';
 @import "mq.css";
 
 
 html {
-    background-color: rgb(243, 237, 237);
+    background-color: rgb(255, 255, 185);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -22,7 +22,7 @@ body {
 
 header {
     background-color: goldenrod; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, rgb(255, 215, 54) , rgb(245, 254, 78));
+    background-image: linear-gradient(to right, rgb(245, 156, 32) ,rgb(255, 132, 0));
     height: 70px;
     margin-bottom: 20px;
     font-size: larger;
@@ -44,6 +44,51 @@ header a{
 .gallery-imgs, .gallery-container div{
     outline: 1px black solid;;
 }
+
+.changes-container {
+    padding: 10px;
+    margin: 0 auto 10px auto;
+    outline: 1px solid orange;
+    width: min-content;
+    text-align: center;
+    background-color: rgba(255, 194, 79, 0.94);
+    gap: 7px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#txtChange {
+    grid-area: txt;
+    height: 5vh;
+}
+
+#font-selection{
+    grid-area: font;
+}
+
+#stroke-clr {
+    grid-area: clrs;
+}
+#fill-clr {
+    grid-area: clrf
+}
+
+#font-size{
+    grid-area: size;
+}
+
+.change-btn {
+    grid-area: line;
+}
+
+.dnw{
+    grid-area: dnw;
+}
+
+.upload{
+    grid-area: share;
+}
+
 
 #about{
     border-top: 1px lightgray solid;
@@ -87,3 +132,7 @@ footer p:last-of-type{
 .editor{
     display: none;
 }
+
+.user-msg{
+    text-align: center;
+} 

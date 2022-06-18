@@ -44,6 +44,7 @@ function getMeme(memeId, isChange=null) {
             line.color = '#000000'
             line.fillColor ='#FFFFFF'
             line.font = 'verdana'
+            hideFBLink()
         })
         changeLineDef()
         
@@ -57,7 +58,6 @@ function getMeme(memeId, isChange=null) {
 function drawDataURIOnCanvas(strDataURI) {
     "use strict"
     var img = new window.Image();
-    console.log(strDataURI);
     img.setAttribute("src", strDataURI);
     var canvas = gElCanvas ;
    var hRatio = canvas.width /img.width    ;
@@ -174,9 +174,17 @@ function drawShadow() {
 }
 
 function downloadCanvas(elLink) {
+    console.log(elLink);
     var copyCanvs = gElCanvas
     const data = copyCanvs.toDataURL()
     
     elLink.href = data
     elLink.download = 'myMeme'
 }
+
+function hideFBLink() {
+    var elFbLink = document.querySelector('.user-msg')
+    elFbLink.innerHTML = ''
+    var elShareBtn = document.querySelector('.share-container')
+    elShareBtn.innerHTML = ''
+} 
