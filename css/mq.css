@@ -14,16 +14,12 @@
         padding-right: 10px;
     }
 
-    .main-layout{
-        width: 300px;
-    }
-
     .gallery-imgs, .gallery-container div{
         height: 150px;
         width: 150px;
     }
 
-    canvas{
+    canvas, .canvas-container{
         display:block;
         border: 1px solid black;
         width: 300px;
@@ -36,10 +32,7 @@
         gap: 10px 10px;
     }
 
-    .editor{
-        display: flex;
-        justify-content: center;
-    }
+    
 
 }
 
@@ -70,6 +63,7 @@
         grid-template-columns: repeat(2, 250px);
         gap: 10px 10px;
     }
+    
 }
 
 /* desktop */
@@ -87,7 +81,7 @@
         padding-right: 10px;
     }
 
-    .main-layout, .header-layout {
+    .header-layout {
         max-width: 900px;
     }
 
