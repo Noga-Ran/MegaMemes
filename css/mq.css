@@ -25,10 +25,6 @@
         width: 300px;
     }
 
-    .canvas-container {
-        margin: 0 auto 10px auto;
-    }
-
     .grid-container{
         display: grid;
         grid-template-rows: repeat(8, 150px);
@@ -36,20 +32,7 @@
         gap: 10px 10px;
     }
 
-    .editor{
-        flex-direction: column;
-    }
-
-    .changes-container{
-        display: grid;
-        grid-template-columns: 30% 17% 27%;
-        grid-template-rows: 30% 19% 25% 14%;
-        grid-template-areas:
-            "txt txt txt"
-            "font clrs clrf"
-            "size . line"
-            "dnw adress share";
-    }
+    
 
 }
 
@@ -79,22 +62,6 @@
         grid-template-rows: repeat(4, 250px);
         grid-template-columns: repeat(2, 250px);
         gap: 10px 10px;
-    }
-
-    .editor{
-        justify-content: center;
-        flex-direction: row;
-    }
-
-    canvas{
-        margin-right: 10px;
-        height: 300px;
-        width: 300px;
-    }
-
-    .changes-container {
-        display: flex;
-        flex-direction: column;
     }
     
 }
@@ -131,22 +98,7 @@
     }
    
     .editor{
+        display: flex;
         justify-content: center;
-        flex-direction: row;
-    }
-
-    canvas{
-        margin-right: 10px;
-    }
-
-    .changes-container{
-        display: grid;
-        grid-template-columns: 30% 17% 27%;
-        grid-template-rows: 30% 19% 25% 14%;
-        grid-template-areas:
-            "txt txt txt"
-            "font clrs clrf"
-            "size . line"
-            "dnw adress share";
     }
 }

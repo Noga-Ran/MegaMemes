@@ -44,7 +44,6 @@ function getMeme(memeId, isChange=null) {
             line.color = '#000000'
             line.fillColor ='#FFFFFF'
             line.font = 'verdana'
-            hideFBLink()
         })
         changeLineDef()
         
@@ -87,16 +86,16 @@ function drawText() {
             if(i===gMeme.selectedLineIdx) {
                 drawShadow()
             }
-            gElCtx.strokeText(style.txt, 150, 50);
+            gElCtx.strokeText(style.txt, 160, 30);
             gElCtx.shadowBlur=0;
-            gElCtx.fillText(style.txt, 150, 50);
+            gElCtx.fillText(style.txt, 160, 30);
         } else {
             if(i===gMeme.selectedLineIdx) {
                 drawShadow()
             }
-            gElCtx.strokeText(style.txt, 150, 370);
+            gElCtx.strokeText(style.txt, 160, 370);
             gElCtx.shadowBlur=0;
-            gElCtx.fillText(style.txt, 150, 370);
+            gElCtx.fillText(style.txt, 160, 370);
         }
 
     }
@@ -180,11 +179,4 @@ function downloadCanvas(elLink) {
     
     elLink.href = data
     elLink.download = 'myMeme'
-}
-
-function hideFBLink() {
-    var elFbLink = document.querySelector('.user-msg')
-    elFbLink.innerHTML = ''
-    var elShareBtn = document.querySelector('.share-container')
-    elShareBtn.innerHTML = ''
 }

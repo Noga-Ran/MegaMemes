@@ -15,7 +15,7 @@
             <logo class="logo"><img src="other-imgs/design/LOGO.png"></logo>
             <div>
                 <a class="gallery-link" href="#gallery" onclick="displayGallery()">Gallery</a>
-                <a class="about-link" href="#about" onclick=displayGallery()>About</a>
+                <a class="about-link" href="#about">About</a>
             </div>
      </header>
 
@@ -24,28 +24,32 @@
             </section>
         </section>
         <section class="editor main-layout align-center">
-            <div class="canvas-container">
+            <div class="canvas-container center-div">
                 <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
             </div>
             <div>
-                <form class="changes-container center-div">
+                <form class="changes-container">
                     <input type="text" id="txtChange" placeholder="enter text" name="txtChange" oninput="setLineText(this.value, event)">
-                    <select id="font-selection" onchange="changeFont(this.value, event)">
-                        <option value="verdana">Verdana</option> 
-                        <option value="cursive">Cursive</option>
-                        <option value="fantasy">Fantasy</option>                   
-                        <option value="monospace">Monospace</option>
-                    </select>
-                    <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" oninput="setColor(this.value, event,true)">
-                    <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" oninput="setColor(this.value, event,false)">
+                    <div>
+                        <select id="font-selection" onchange="changeFont(this.value, event)">
+                            <option value="verdana">Verdana</option> 
+                            <option value="cursive">Cursive</option>
+                            <option value="fantasy">Fantasy</option>                   
+                            <option value="monospace">Monospace</option>
+                        </select>
+                        <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" oninput="setColor(this.value, event,true)">
+                        <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" oninput="setColor(this.value, event,false)">
+                    </div>
+                    <label for="font-size">increase/decrease</label>
                     <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
-                
-                    <button class="change-btn" onclick="switchLine(event)">Switch Line</button>
-                    <a href="#" onclick="downloadCanvas(this)" download="file-name" class="so so-download dnw"></a>
-                    <a href="#" onclick="createPostImg(this)" class="fa fa-facebook-f upload"></a>
+                    <div>
+                        <button onclick="switchLine(event)">Switch Line</button>
+                    </div>
+                    <a href="#" onclick="downloadCanvas(this)" download="file-name" class="so so-download"></a>
+                    <a href="#" onclick="createPostImg(this)" class="fa fa-facebook-f"></a>
+                    <p class="user-msg"></p>
+                    <div class="share-container"></div>
                 </form>
-                <p class="user-msg"></p>
-                <div class="share-container"></div>
             </div>
         </section>
 
