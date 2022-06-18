@@ -27,7 +27,7 @@ function hideGallery(){
     var elGallery = document.getElementById('gallery')
     elGallery.style.display = 'none'
     var elEditor = document.querySelector('.editor')
-    elEditor.style.display = 'block'
+    elEditor.style.display = 'flex'
     var elAbout=document.getElementById('about')
     elAbout.style.display = 'none'
 }

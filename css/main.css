@@ -22,7 +22,7 @@ body {
 
 header {
     background-color: goldenrod; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, rgb(255, 215, 54) , rgb(245, 254, 78));
+    background-image: linear-gradient(to right, rgb(255, 215, 54) , rgb(254, 148, 78));
     height: 70px;
     margin-bottom: 20px;
     font-size: larger;
@@ -45,6 +45,52 @@ header a{
     outline: 1px black solid;;
 }
 
+.changes-container {
+    padding: 10px;
+    margin: 0 auto 10px auto;
+    outline: 1px solid orange;
+    background-color: rgba(255, 194, 79, 0.94);
+    height: auto;
+    width: min-content;
+    text-align: center;
+    background-color: rgba(255, 194, 79, 0.94);
+    gap: 9px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#txtChange {
+    grid-area: txt;
+    height: 5vh;
+}
+
+#font-selection{
+    grid-area: font;
+}
+
+#stroke-clr {
+    grid-area: clrs;
+}
+#fill-clr {
+    grid-area: clrf
+}
+
+#font-size{
+    grid-area: size;
+}
+
+.change-btn {
+    grid-area: line;
+}
+
+.dnw{
+    grid-area: dnw;
+}
+
+.upload{
+    grid-area: share;
+}
+
 #about{
     border-top: 1px lightgray solid;
     border-bottom: 1px lightgray solid;
@@ -65,8 +111,8 @@ header a{
 }
 
 footer {
-    background-color: rgb(255, 134, 42);
-    background-image: linear-gradient(rgb(255, 134, 42), rgb(255, 132, 0));
+    background-color: goldenrod; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, rgb(255, 215, 54) , rgb(254, 148, 78));
     height: auto;
     color: azure;
     padding: 0 20px 0 20px;
@@ -86,4 +132,8 @@ footer p:last-of-type{
 
 .editor{
     display: none;
+}
+
+.user-msg{
+    font-size: 40%;
 }
