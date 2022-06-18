@@ -39,7 +39,6 @@ function getMeme(memeId, isChange=null) {
     if(isChange) {
 
         gMeme.lines.forEach(function(line){
-            console.log(line);
             line.txt = 'Enter Text'
             line.size = 20
             line.color = '#000000'
@@ -58,10 +57,20 @@ function getMeme(memeId, isChange=null) {
 function drawDataURIOnCanvas(strDataURI) {
     "use strict"
     var img = new window.Image();
-    img.addEventListener("load", function () {
-        gElCtx.drawImage(img, 0, 0);
-    });
+    console.log(strDataURI);
     img.setAttribute("src", strDataURI);
+    var canvas = gElCanvas ;
+   var hRatio = canvas.width /img.width    ;
+   var vRatio =  canvas.height/img.height  ;
+   var ratio  = Math.min ( hRatio, vRatio );
+   var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
+   var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
+   gElCtx.clearRect(0,0,canvas.width, canvas.height);
+
+   img.addEventListener("load", function () {
+        gElCtx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
+})
+
 }
 
 function drawText() {
@@ -162,4 +171,12 @@ function drawShadow() {
     gElCtx.shadowColor="yellow";
     gElCtx.shadowBlur=20;
 
+}
+
+function downloadCanvas(elLink) {
+    var copyCanvs = gElCanvas
+    const data = copyCanvs.toDataURL()
+    
+    elLink.href = data
+    elLink.download = 'myMeme'
 }

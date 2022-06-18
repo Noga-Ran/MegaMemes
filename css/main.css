@@ -1,8 +1,10 @@
-
+@import 'root.css';
+@import 'font-awesome.css';
 @import 'flex-helpers.css';
 @import 'grid.css';
 @import 'app-layout.css';
 @import "mq.css";
+
 
 html {
     background-color: rgb(243, 237, 237);
@@ -37,6 +39,10 @@ header {
 header a{
     color:black;
     font-weight: bold;
+}
+
+.gallery-imgs, .gallery-container div{
+    outline: 1px black solid;;
 }
 
 #about{
