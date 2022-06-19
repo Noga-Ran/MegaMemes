@@ -1,0 +1,23 @@
+.fa {
+    font-family: fa;
+}
+
+.so {
+    font-family: so;
+}
+
+.fa.fa-facebook-f::before {
+    content: "\f082";
+}
+
+.fa.fa-twitter::before{
+    content: "\f099";
+}
+
+.fa.fa-git::before{
+    content:"\f09b";
+}
+
+.so.so-download::before{
+    content: "\f019";
+}
