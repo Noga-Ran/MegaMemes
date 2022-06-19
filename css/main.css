@@ -71,7 +71,7 @@ header a{
     gap: 10px 10px;
     align-items: center;
     justify-content: space-between;
-    box-shadow: inset -1px 3px 8px 5px var(--or), 2px 5px 16px 0px var(--dor), -7px 12px 3px 0px rgb(0 0 0 / 77%);
+    box-shadow: -7px 5px 5px 0px rgb(0 0 0 / 77%);
 }
 
 .changes-container *{
