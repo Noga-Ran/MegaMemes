@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,66 +9,71 @@
     <link rel="stylesheet" href="css/main.css">
 
 </head>
+
 <body onload="onInit()">
 
-    <ui class="ui-container">
-        <header class="flex align-center space-between">
-            <logo class="logo"><img src="other-imgs/design/LOGO.png"></logo>
-            <div>
-                <a class="gallery-link" href="#gallery" onclick="displayGallery()">Gallery</a>
-                <a class="about-link" href="#about" onclick=displayGallery()>About</a>
-            </div>
-     </header>
+    <header class="flex align-center space-between">
+        <logo class="logo"><img src="other-imgs/design/LOGO.png"></logo>
+        <div>
+            <a class="gallery-link" href="#gallery" onclick="displayGallery()">Gallery</a>
+            <a class="about-link" href="#about" onclick=displayGallery()>About</a>
+        </div>
+    </header>
 
-        <section class="gallery main-layout flex center-items" id="gallery">
-            <section class="gallery-container grid-container">
-            </section>
+    <section class="gallery main-layout flex center-items" id="gallery">
+        <section class="gallery-container grid-container">
         </section>
-        <section class="editor main-layout align-center">
-            <div class="canvas-container center-div">
-                <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
-            </div>
-            <div>
-                <form class="changes-container center-div">
-                    <input type="text" id="txtChange" placeholder="enter text" name="txtChange" oninput="setLineText(this.value, event)">
-                    <select id="font-selection" onchange="changeFont(this.value, event)">
-                        <option value="verdana">Verdana</option> 
-                        <option value="cursive">Cursive</option>
-                        <option value="fantasy">Fantasy</option>                   
-                        <option value="monospace">Monospace</option>
-                    </select>
-                    <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" onchange="setColor(this.value, event,true)">
-                    <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" onchange="setColor(this.value, event,false)">
-                    <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
-                    <button class="change-btn" onclick="switchLine(event)">Switch Line</button>
-                    <a href="#" onclick="downloadCanvas(this)" download="file-name" class="so so-download dnw"></a>
-                    <a href="#" onclick="createPostImg(this)" class="fa fa-facebook-f upload"></a>
-                </form>
-                <p class="user-msg"></p>
-                <div class="share-container"></div>
-            </div>
-        </section>
+    </section>
+    <section class="editor main-layout align-center">
+        <div class="canvas-container center-div">
+            <canvas id="my-canvs" height="400" width="400" style="outline: black solid 1px"></canvas>
+        </div>
+        <div>
+            <form class="changes-container center-div">
+                <input type="text" id="txtChange" placeholder="enter text" name="txtChange"
+                    oninput="onSetLineText(this.value, event)">
+                <select id="font-selection" onchange="onChangeFont(this.value, event)">
+                    <option value="verdana">Verdana</option>
+                    <option value="cursive">Cursive</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="monospace">Monospace</option>
+                </select>
+                <input type="color" id="stroke-clr" name="stroke-clr" value="#000000"
+                    onchange="onSetColor(this.value, event,true)">
+                <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF"
+                    onchange="onSetColor(this.value, event,false)">
+                <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20"
+                    onchange="onSetFontSize(this.value, event)" required>
+                <button class="change-btn" onclick="onSwitchLine(event)">Switch Line</button>
+                <a href="#" onclick="onDownloadCanvas(this)" download="file-name" class="so so-download dnw"></a>
+                <a href="#" onclick="onShare(this)" class="fa fa-facebook-f upload"></a>
+            </form>
+            <p class="user-msg"></p>
+            <div class="share-container"></div>
+        </div>
+    </section>
 
-        <div id="about">
-            <div class="about-container center-div flex align-center">
-                <img src="other-imgs/img.jpg">
-                <div class="center-div flex align-center cols">  
-                    <h3>Noga Ran</h3>
-                    <p>this coder doesn't know what to write about herself.<br>Pretend that her hobbies and dreams are written here.</p>
-                    <div>
-                        <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook-f"></a>
-                        <a href="https://github.com/" target="_blank" class="fa fa-git"></a>
-                        <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
-                    </div>
+    <div id="about">
+        <div class="about-container center-div flex align-center">
+            <img src="other-imgs/img.jpg">
+            <div class="center-div flex align-center cols">
+                <h3>Noga Ran</h3>
+                <p>this coder doesn't know what to write about herself.<br>Pretend that her hobbies and dreams are
+                    written here.</p>
+                <div>
+                    <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook-f"></a>
+                    <a href="https://github.com/" target="_blank" class="fa fa-git"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
                 </div>
             </div>
         </div>
-        
-        <footer class="align-center">
-            <p>megameme</p>
-            <p>All Rights Reserved ©️ 2022</p>
-        </footer>
-    </ui>
+    </div>
+
+    <footer class="align-center">
+        <p>megameme</p>
+        <p>All Rights Reserved ©️ 2022</p>
+    </footer>
+
 
     <script src="js/galleryController.js"></script>
     <script src="js/meme-service.js"></script>
@@ -75,4 +81,5 @@
     <script src="js/share.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

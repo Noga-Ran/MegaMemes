@@ -1,5 +1,6 @@
 'usr strict'
 function createPostImg() {
+    
     const imgDataUrl = gElCanvas.toDataURL("image/jpeg")
 
     // A function to be called if request succeeds

@@ -32,7 +32,7 @@ function setImg(id) {
     renderMeme(id, 'change')
 }
 
-function getMeme(memeId, isChange=null) {
+function getMeme(memeId, isChange=null, isDownload=null,fb=null) {
     
     var index = gImgs.findIndex(img => img.id == memeId);
     gMeme.selectedImgId = memeId
@@ -51,29 +51,30 @@ function getMeme(memeId, isChange=null) {
         var elInput = document.getElementById('txtChange')
         elInput.value = ''
     }
-    drawDataURIOnCanvas(gImgs[index].url)
-    setTimeout(drawText,1)
+    
+    drawDataURIOnCanvas(gImgs[index].url, isDownload,fb)
 }
 
-function drawDataURIOnCanvas(strDataURI) {
-    "use strict"
+function drawDataURIOnCanvas(strDataURI, forDownload=null, fb=null) {
+    
     var img = new window.Image();
     img.setAttribute("src", strDataURI);
     var canvas = gElCanvas ;
-   var hRatio = canvas.width /img.width    ;
-   var vRatio =  canvas.height/img.height  ;
-   var ratio  = Math.min ( hRatio, vRatio );
+   var hRatio = canvas.width /img.width    
+   var vRatio =  canvas.height/img.height  
+   var ratio  = Math.min ( hRatio, vRatio )
    var centerShift_x = ( canvas.width - img.width*ratio ) / 2;
    var centerShift_y = ( canvas.height - img.height*ratio ) / 2;  
    gElCtx.clearRect(0,0,canvas.width, canvas.height);
 
-   img.addEventListener("load", function () {
+    img.onload = ()=>{
         gElCtx.drawImage(img, 0,0, img.width, img.height,centerShift_x,centerShift_y,img.width*ratio, img.height*ratio);
-})
-
+        drawText(forDownload,fb)
+    }
+   
 }
 
-function drawText() {
+function drawText(forDownload=null, fb=null) {
     
     for(var i=0; i<gMeme.lines.length; i++) {
         var style = gMeme.lines[i]
@@ -83,14 +84,14 @@ function drawText() {
         gElCtx.strokeStyle = style.color
         gElCtx.fillStyle = style.fillColor
         if(i===0) {
-            if(i===gMeme.selectedLineIdx) {
+            if(i===gMeme.selectedLineIdx &&!forDownload &&!fb) {
                 drawShadow()
             }
             gElCtx.strokeText(style.txt, 160, 30);
             gElCtx.shadowBlur=0;
             gElCtx.fillText(style.txt, 160, 30);
         } else {
-            if(i===gMeme.selectedLineIdx) {
+            if(i===gMeme.selectedLineIdx && !forDownload &&!fb) {
                 drawShadow()
             }
             gElCtx.strokeText(style.txt, 160, 370);
@@ -99,38 +100,41 @@ function drawText() {
         }
 
     }
+
+    if(forDownload){
+        downloadCanvas(forDownload)
+    } else if(fb) {
+        createPostImg()
+    }
 }
 
-function setLineText(txt, ev){
-    ev.preventDefault()
+function setLineText(txt){
 
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
     getMeme(gMeme.selectedImgId)
 }
 
-function changeFont(font, ev) {
-    ev.preventDefault()
+function changeFont(font) {
+    
     gMeme.lines[gMeme.selectedLineIdx].font = font;
     getMeme(gMeme.selectedImgId)
 }
 
-function setColor(clr, ev,isStroke) {
-    ev.preventDefault()
+function setColor(clr,isStroke) {
 
     if(isStroke) gMeme.lines[gMeme.selectedLineIdx].color = clr;
     if(!isStroke) gMeme.lines[gMeme.selectedLineIdx].fillColor = clr;
     getMeme(gMeme.selectedImgId)
 }
 
-function setFontSize(val,ev) {
-    ev.preventDefault()
+function setFontSize(size) {
 
-    gMeme.lines[gMeme.selectedLineIdx].size = val
+    gMeme.lines[gMeme.selectedLineIdx].size = size
     getMeme(gMeme.selectedImgId)
 }
 
-function switchLine(e) {
-    e.preventDefault()
+function switchLine() {
+   
     var gMemeLinesNum = gMeme.lines.length
     if(gMeme.selectedLineIdx+1<gMemeLinesNum) {
         gMeme.selectedLineIdx++
@@ -174,12 +178,13 @@ function drawShadow() {
 }
 
 function downloadCanvas(elLink) {
-    console.log(elLink);
+    
     var copyCanvs = gElCanvas
     const data = copyCanvs.toDataURL()
     
     elLink.href = data
-    elLink.download = 'myMeme'
+    elLink.download = 'myAwesomeMeme'
+    getMeme(gMeme.selectedImgId)
 }
 
 function hideFBLink() {
