@@ -19,8 +19,8 @@
             </div>
      </header>
 
-        <section class="gallery main-layout center-div" id="gallery">
-            <section class="gallery-container grid-container center-items">
+        <section class="gallery main-layout flex center-items" id="gallery">
+            <section class="gallery-container grid-container">
             </section>
         </section>
         <section class="editor main-layout align-center">
@@ -36,8 +36,8 @@
                         <option value="fantasy">Fantasy</option>                   
                         <option value="monospace">Monospace</option>
                     </select>
-                    <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" oninput="setColor(this.value, event,true)">
-                    <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" oninput="setColor(this.value, event,false)">
+                    <input type="color" id="stroke-clr" name="stroke-clr" value="#000000" onchange="setColor(this.value, event,true)">
+                    <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF" onchange="setColor(this.value, event,false)">
                     <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20" onchange="setFontSize(this.value, event)" required>
                     <button class="change-btn" onclick="switchLine(event)">Switch Line</button>
                     <a href="#" onclick="downloadCanvas(this)" download="file-name" class="so so-download dnw"></a>

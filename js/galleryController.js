@@ -16,7 +16,7 @@ function renderGallery() {
 
 function displayGallery(){
     var elGallery = document.getElementById('gallery')
-    elGallery.style.display = ''
+    elGallery.style.display = 'flex'
     var elEditor = document.querySelector('.editor')
     elEditor.style.display = 'none'
     var elAbout=document.getElementById('about')
