@@ -1,10 +1,10 @@
 
 @font-face {
     font-family: fa;
-    src: url("../icons/fa/fa-brands-400.ttf");
+    src: url("../fa/fa-brands-400.ttf");
 }
 
 @font-face {
     font-family: so;
-    src: url("../icons/fa/fa-solid-900.ttf");
+    src: url("../fa/fa-solid-900.ttf");
 }
