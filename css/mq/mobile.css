@@ -1,0 +1,53 @@
+@media screen and (max-width: 529px) {
+
+    
+    .logo{
+        padding: 0 0 0 10px;
+    }
+    .gallery-link{
+        padding: 0 20px 0 0;
+    }
+    .about-link{
+        padding-right: 10px;
+    }
+    .gallery-imgs, .gallery-container div{
+        height: 150px;
+        width: 150px;
+    }
+    canvas, .canvas-container{
+        display:block;
+        border: 1px solid black;
+        width: 300px;
+    }
+
+    .canvas-container {
+        margin: 0 auto 10px auto;
+    }
+
+    .grid-container{
+        display: grid;
+        grid-template-rows: repeat(8, 150px);
+        grid-template-columns: repeat(2, 150px);
+        gap: 10px 10px;
+    }
+
+    .editor{
+        flex-direction: column;
+    }
+
+    .changes-container{
+        width: 282px;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        grid-template-rows: repeat(4,22%);
+        grid-template-areas:
+            "txt txt txt"
+            "font clrs clrf"
+            "size . line"
+            "dnw adress-btn share";
+    }
+
+    .share-container{
+        padding-bottom: 10px;
+    }
+}

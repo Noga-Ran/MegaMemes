@@ -3,26 +3,24 @@
 @import 'roots and helpers/flex-helpers.css';
 @import 'grid.css';
 @import 'app-layout.css';
-@import "mq.css";
+@import "mq/main-mq.css";
 
-
+/* basic */
 html {
-    background-color: rgb(255, 255, 185);
+    background-color: var(--bgclr);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--dg);
 }
 
 body {
     margin: 0;
 }
 
-.ui-container{
-    position: relative;
-    min-height: 100vh;
-}
+/* header */
 
 header {
-    background-color: goldenrod; /* For browsers that do not support gradients */
-    background-image: linear-gradient(to right, rgb(245, 156, 32) ,rgb(255, 132, 0));
+    background-color: var(--or); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, var(--or),var(--dor));
     height: 70px;
     margin-bottom: 20px;
     font-size: larger;
@@ -37,12 +35,13 @@ header {
 }
 
 header a{
-    color:black;
     font-weight: bold;
 }
 
+/* gallery */
+
 .gallery .grid-container {
-    background-color: grey;
+    background-color: var(--mg);
     -webkit-box-shadow: 8px 8px 7px 2px rgba(64,64,64,0.9); 
     box-shadow: 8px 8px 7px 2px rgba(64,64,64,0.9);
     width: fit-content;
@@ -55,30 +54,53 @@ header a{
     border-radius: 10%;
 }
 
+.gallery-imgs:hover{
+    transform: scale(1.01);
+    outline: 1px var(--yw) solid;
+}
+
+/* editor */
+
 .changes-container {
     padding: 10px;
     margin: 0 auto 10px auto;
-    outline: 1px solid orange;
-    width: min-content;
+    border: 1px solid var(--or);
+    border-radius: 1%;
     text-align: center;
-    background-color: rgba(255, 194, 79, 0.94);
-    gap: 7px 20px;
+    background-color: var(--dor);
+    gap: 10px 10px;
     align-items: center;
     justify-content: space-between;
+    box-shadow: inset -1px 3px 8px 5px var(--or), 2px 5px 16px 0px var(--dor), -7px 12px 3px 0px rgb(0 0 0 / 77%);
+}
+
+.changes-container *{
+    height: 4vh;
+    width: auto;
+    text-align: center;
+}
+
+.changes-container *:hover{
+    transform: scale(1.05);
 }
 
 #txtChange {
     grid-area: txt;
-    height: 5vh;
+    background-color: var(--bgclr);
+    color: var(--dg);
 }
+
 
 #font-selection{
     grid-area: font;
+    background-color: var(--bgclr);
+    color: var(--dg);
 }
 
 #stroke-clr {
     grid-area: clrs;
 }
+
 #fill-clr {
     grid-area: clrf
 }
@@ -99,10 +121,18 @@ header a{
     grid-area: share;
 }
 
+.so-share, .dnw, .upload{
+    font-size: 30px;
+    padding-bottom: 10px;
+}
+
+/* about */
 
 #about{
-    border-top: 1px lightgray solid;
-    border-bottom: 1px lightgray solid;
+    border-top: 1px var(--lg) solid;
+    border-bottom: 1px var(--lg) solid;
+    background-color: var(--mg);
+    color: var(--lg);
     height: auto; 
     margin: 20px 0 20px 0;
     height: auto;
@@ -115,13 +145,30 @@ header a{
 
 #about img{
     border-radius: 50%;
-    width: 30%;
-    padding-right: 10px;
+    width: 20vw;
+    padding: 10px;
 }
 
+#about div h3{
+    font-size: 3vmin;
+    margin:0;
+}
+
+#about div p{
+    font-size: 2vmin;
+    margin: 20px 0 20px 0;
+}
+
+.socials{
+    font-size: 2vw;
+    width: 100%;
+}
+
+/* footer */
+
 footer {
-    background-color: rgb(255, 134, 42);
-    background-image: linear-gradient(rgb(255, 134, 42), rgb(255, 132, 0));
+    background-color: var(--or); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, var(--or),var(--dor));
     height: auto;
     color: azure;
     padding: 0 20px 0 20px;
@@ -142,7 +189,3 @@ footer p:last-of-type{
 .editor{
     display: none;
 }
-
-.user-msg{
-    text-align: center;
-} 

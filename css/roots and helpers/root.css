@@ -8,3 +8,13 @@
     font-family: so;
     src: url("../fa/fa-solid-900.ttf");
 }
+
+:root{
+    --lg:#BFBDC1;
+    --mg: #6D6A75;
+    --dg: #37323E;
+    --yw: #f5ef3f;
+    --or: #DE9E36;
+    --dor :#ff7b02;
+    --bgclr:#f7ede2;
+}

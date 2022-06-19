@@ -1,0 +1,51 @@
+@media screen and (max-width: 979px) and (min-width:530px){
+
+    .logo{
+        padding: 0 0 0 10px;
+    }
+    .gallery-link{
+        padding: 0 40px 0 0;
+    }
+    .about-link{
+        padding-right: 10px;
+    }
+    .gallery-imgs, .gallery-container div {
+        height: 250px;
+        width: 250px;
+        margin: 0;
+    }
+    .grid-container{
+        display: grid;
+        height: fit-content;
+        grid-template-rows: repeat(4, 250px);
+        grid-template-columns: repeat(2, 250px);
+        gap: 10px 10px;
+    }
+
+    .editor{
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    canvas{
+        margin-right: 10px;
+        height: 300px;
+        width: 300px;
+    }
+
+    .changes-container {
+        display: grid;
+        grid-template-rows: repeat(5,calac(20%-10px));
+        grid-template-columns: 40% 40%;
+        grid-template-areas:
+            "txt txt"
+            "font font"
+            "clrs clrf"
+            "size line"
+            "dnw share";
+    }
+
+    footer{
+        margin-top: 34vh;
+    }
+}

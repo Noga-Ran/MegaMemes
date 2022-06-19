@@ -15,8 +15,8 @@
     <header class="flex align-center space-between">
         <logo class="logo"><img src="other-imgs/design/LOGO.png"></logo>
         <div>
-            <a class="gallery-link" href="#gallery" onclick="displayGallery()">Gallery</a>
-            <a class="about-link" href="#about" onclick=displayGallery()>About</a>
+            <a class="gallery-link clean-a" href="#gallery" onclick="displayGallery()">Gallery</a>
+            <a class="about-link clean-a" href="#about" onclick=displayGallery()>About</a>
         </div>
     </header>
 
@@ -42,13 +42,12 @@
                     onchange="onSetColor(this.value, event,true)">
                 <input type="color" id="fill-clr" name="fill-clr" value="#FFFFFF"
                     onchange="onSetColor(this.value, event,false)">
-                <input id="font-size" type="number" name="font-size" step="1" min="10" value="20" placeholder="e.g. 20"
+                <input id="font-size" type="number" name="font-size" step="1" min="10" max="60" value="20" placeholder="e.g. 20"
                     onchange="onSetFontSize(this.value, event)" required>
-                <button class="change-btn" onclick="onSwitchLine(event)">Switch Line</button>
-                <a href="#" onclick="onDownloadCanvas(this)" download="file-name" class="so so-download dnw"></a>
-                <a href="#" onclick="onShare(this)" class="fa fa-facebook-f upload"></a>
+                <button class="change-btn so so-switch" onclick="onSwitchLine(event)"></button>
+                <a href="#" onclick="onDownloadCanvas(this)" download="file-name" class="so so-download dnw clean-a"></a>
+                <a href="#" onclick="onShare(this)" class="fa fa-facebook-f upload clean-a"></a>
             </form>
-            <p class="user-msg"></p>
             <div class="share-container"></div>
         </div>
     </section>
@@ -60,10 +59,10 @@
                 <h3>Noga Ran</h3>
                 <p>this coder doesn't know what to write about herself.<br>Pretend that her hobbies and dreams are
                     written here.</p>
-                <div>
-                    <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook-f"></a>
-                    <a href="https://github.com/" target="_blank" class="fa fa-git"></a>
-                    <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter"></a>
+                <div class="socials flex even">
+                    <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook-f clean-a"></a>
+                    <a href="https://github.com/" target="_blank" class="fa fa-git clean-a"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="fa fa-twitter clean-a"></a>
                 </div>
             </div>
         </div>

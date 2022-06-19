@@ -188,8 +188,6 @@ function downloadCanvas(elLink) {
 }
 
 function hideFBLink() {
-    var elFbLink = document.querySelector('.user-msg')
-    elFbLink.innerHTML = ''
     var elShareBtn = document.querySelector('.share-container')
     elShareBtn.innerHTML = ''
 } 
